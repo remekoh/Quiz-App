@@ -9,7 +9,8 @@
 //Present
 
 //Question 1: What is the current season of Big Bang Theory?
-//options: a) Season 9
+//Correct: a) Season 9
+//Options: Season 14, Season 25, Season 8,
 //Question 2: How many episodes of Big Bang Theory are there?
 //options: a) 207
 //Question 3: Who is Sheldon's roommate?

@@ -1,33 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>Quiz App</title>
-		<!--Google Fonts-->
-		<link href='https://fonts.googleapis.com/css?family=Sofia|Roboto:300,500|Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="css/normalize.css">
-		<link rel="stylesheet" href="css/styles.css">
-	</head>
-	<body>
-		<header id="header" class="">
-			<img src="image/bbt_logo.png" alt="The Big Bang Theory Logo">
-			<h1>Quiz</h1>
-			</header><!-- /header -->
-			<div class="quiz-area">
-				<form type="submit">
-					<h3 class="question-header">Bazinga!</h3>
-					<input type="radio" name="" value="">
-					<input type="radio" name="" value="">
-					<input type="radio" name="" value="">
-					<input type="radio" name="" value="">
-					<button type="submit" name="" value="Submit">Submit</button>
-				</form>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam cumque velit sit eaque fugit, error ipsa officiis voluptate, ut possimus cum nostrum laudantium deleniti tempora eos perspiciatis alias natus repellendus.</p>
-			</div>
-			<footer>
-				<p class="question-out-of-total"></p>
-			</footer>
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-			<script src="js/quiz.js"></script>
-		</body>
-	</html>
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<title>Quiz App</title>
+			<!--Google Fonts-->
+			<link href='https://fonts.googleapis.com/css?family=Sofia|Roboto:300,500|Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+			<link rel="stylesheet" href="css/normalize.css">
+			<link rel="stylesheet" href="css/styles.css">
+		</head>
+		<body>
+			<header id="header" class="">
+				<img src="image/bbt_logo.png" alt="The Big Bang Theory Logo">
+				<h1>Quiz</h1>
+				</header><!-- /header -->
+				<div class="quiz-area">
+					<form type="submit">
+						<h3 class="question-header">Bazinga!</h3>
+						<label id="0">
+							<input type="radio" name="answers" value="0">
+							<span></span>
+						</label>
+						<label id="1">
+							<input type="radio" name="answers" value="1">
+							<span></span>
+						</label>
+						<label id="2">
+							<input type="radio" name="answers" value="2">
+							<span></span>
+						</label>
+						<label id="3">
+							<input type="radio" name="answers" value="3">
+							<span></span>
+						</label>
+						<button type="submit" name="" value="Submit">Submit</button>
+					</form>
+					<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam cumque velit sit eaque fugit, error ipsa officiis voluptate, ut possimus cum nostrum laudantium deleniti tempora eos perspiciatis alias natus repellendus.</p> -->
+				</div>
+				<footer>
+					<p class="question-out-of-total"></p>
+				</footer>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+				<script src="js/quiz.js"></script>
+			</body>
+		</html>
