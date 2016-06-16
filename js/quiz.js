@@ -2,6 +2,7 @@
 
 $(document).ready(function() {
   var currentQuestionIndex = 0;
+  var userCorrectTotal = 0;
   var questions = [
     {
       questionText: 'What is the current season of Big Bang Theory?',
@@ -35,27 +36,34 @@ $(document).ready(function() {
     });
 
     // Loads first question when page loads
-    currentQuestionIndex = newGame(questions[0], questions.length);
+    currentQuestionIndex = userCorrectTotal = newGame(questions[0], questions.length);
 
     $('form').submit(function(event) {
       event.preventDefault();
 
-      if ($('input[type = "radio"]:checked').length === 1) {
-        loadQuestion(questions[currentQuestionIndex]);
+      var userAnswer = $('input[type = "radio"]:checked');
+
+      if (userAnswer.length === 1) {
+        // Checks if user answr is correct
+        if (isAnswerCorrect(questions[currentQuestionIndex], userAnswer)) {
+          userCorrectTotal++;
+        }
+        //Setup for the next question
         currentQuestionIndex++;
-        $('input[type = "radio"]').prop('checked', false);
-        diplayQuestionTotal(currentQuestionIndex, questions.length);
-      }else {
+        console.log('currentQuestionIndex: ' + currentQuestionIndex);
+        loadQuestion(questions[currentQuestionIndex], currentQuestionIndex + 1);
+        diplayQuestionTotal(currentQuestionIndex + 1, questions.length);
+        $('input[type = "radio"]').prop('checked', false); // Clear previous answer
+      } else {
         alert("Please choose an Answer, any answer!");
       }
-
-    })
-
+    });
 });
 
 // Given a question object returns true if user presents correct
 // answer
-function checkIfCorrect(currentQuestion, usersAnswer) {
+function isAnswerCorrect(currentQuestion, usersAnswer) {
+  
 
 }
 
@@ -65,8 +73,9 @@ function diplayQuestionTotal(currentQuestionNum, totalNumQuestion) {
 }
 
 // Given a question object loads the next question on screen
-function loadQuestion(currentQuestion) {
-  $('.question-header').text(currentQuestion.questionText);
+function loadQuestion(currentQuestion, currentIndex) {
+  console.log('index: ' + currentIndex);
+  $('.question-header').text(currentIndex + '. ' + currentQuestion.questionText);
   console.log(currentQuestion.questionText);
   for(var i = 0; i < 4; i++) {
     console.log(currentQuestion.options[i]);
@@ -81,9 +90,10 @@ function updateScore() {
 
 // Reset for a new game
 function newGame(firstQuestion, totalNumQuestion) {
-  loadQuestion(firstQuestion);
+  loadQuestion(firstQuestion, 1);
   diplayQuestionTotal(1, totalNumQuestion);
-  return 1;
+  $('input[type = "radio"]').prop('checked', false); // Clear previous answer
+  return 0;
 }
 
 
