@@ -29,12 +29,26 @@ $(document).ready(function() {
       correctAnswer: '11'
     }];
 
-    currentQuestionIndex = newGame(questions[0]);
+    // When triggered this listener calls the new game function
+    $('.start-game').click(function() {
+      currentQuestionIndex = newGame(questions[0], questions.length);
+    });
+
+    // Loads first question when page loads
+    currentQuestionIndex = newGame(questions[0], questions.length);
 
     $('form').submit(function(event) {
       event.preventDefault();
-      loadQuestion(questions[currentQuestionIndex]);
-      currentQuestionIndex++;
+
+      if ($('input[type = "radio"]:checked').length === 1) {
+        loadQuestion(questions[currentQuestionIndex]);
+        currentQuestionIndex++;
+        $('input[type = "radio"]').prop('checked', false);
+        diplayQuestionTotal(currentQuestionIndex, questions.length);
+      }else {
+        alert("Please choose an Answer, any answer!");
+      }
+
     })
 
 });
@@ -46,8 +60,8 @@ function checkIfCorrect(currentQuestion, usersAnswer) {
 }
 
 // Displays number questions answered out of total
-function diplayQuestionTotal() {
-
+function diplayQuestionTotal(currentQuestionNum, totalNumQuestion) {
+ $('.question-out-of-total').text('You are on '+currentQuestionNum + ' out of ' + totalNumQuestion);
 }
 
 // Given a question object loads the next question on screen
@@ -57,7 +71,7 @@ function loadQuestion(currentQuestion) {
   for(var i = 0; i < 4; i++) {
     console.log(currentQuestion.options[i]);
     $('#' + i + ' span').text(currentQuestion.options[i]);
-  } 
+  }
 }
 
 // Updates the user's score
@@ -66,8 +80,9 @@ function updateScore() {
 }
 
 // Reset for a new game
-function newGame(firstQuestion) {
+function newGame(firstQuestion, totalNumQuestion) {
   loadQuestion(firstQuestion);
+  diplayQuestionTotal(1, totalNumQuestion);
   return 1;
 }
 
