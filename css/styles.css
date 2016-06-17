@@ -26,20 +26,48 @@ header {
 }
 
 .quiz-area{
-	background-color: rgba(255,0,0,0.7);
+	position: relative;
+  display: block;
+	background-color: rgba(239,239,239,0.7);
 	max-width: 570px;
 	margin: 0 auto;
-	border-radius: 10px;
 	font-size: 25px;
-	border: 1px solid #e5e5e5;
-}
-
-.quiz-area h3 {
+	border: 1px solid #ff0000;
 	text-align: center;
+	border-radius: 10px;
 }
 
 .quiz-area input {
 	padding-left: 25px;
 }
 
+.start-game {
+	margin-top: 25px;
+}
+
+label {
+  display: block;
+  padding-left: 15px;
+  text-indent: -15px;
+}
+
+input {
+  width: 13px;
+  height: 13px;
+  padding: 0;
+  margin:0;
+  vertical-align: bottom;
+  position: relative;
+  top: -1px;
+  *overflow: hidden;
+  text-align: justify;
+}
+
+.button-space {
+	margin: 25px 0;
+}
+
+footer{
+	text-align: center;
+}
 

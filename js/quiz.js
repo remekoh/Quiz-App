@@ -46,7 +46,8 @@ $(document).ready(function() {
             }
             if (currentQuestionIndex === 4) {
                 $('.quiz-area').empty();
-                $('.quiz-area').append('You answered ' + userCorrectTotal + ' out of ' + questions.length);
+                $('.quiz-area').append('You answered ' + userCorrectTotal + ' out of ' + questions.length + ' questions correctly. ');
+                $('.question-out-of-total').empty();
             } else {
                 //Setup for the next question
                 currentQuestionIndex++;
@@ -81,7 +82,7 @@ function diplayQuestionTotal(currentQuestionNum, totalNumQuestion) {
 // Given a question object loads the next question on screen
 function loadQuestion(currentQuestion, currentIndex) {
     console.log('index: ' + currentIndex);
-    $('.question-header').text(currentIndex + '. ' + currentQuestion.questionText);
+    $('.question-header').text('Question' + '#' + currentIndex + '. ' + currentQuestion.questionText);
     console.log(currentQuestion.questionText);
     for (var i = 0; i < 4; i++) {
         console.log(currentQuestion.options[i]);
