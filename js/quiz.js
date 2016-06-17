@@ -45,8 +45,9 @@ $(document).ready(function() {
                 console.log('userCorrectTotal:' + userCorrectTotal);
             }
             if (currentQuestionIndex === 4) {
-                $('.quiz-area').empty();
-                $('.quiz-area').append('You answered ' + userCorrectTotal + ' out of ' + questions.length + ' questions correctly. ');
+                $('.quiz-area').hide();
+                $('.answer-display').show();
+                $('.answer-display').text('You answered ' + userCorrectTotal + ' out of ' + questions.length + ' questions correctly. ');
                 $('.question-out-of-total').empty();
             } else {
                 //Setup for the next question
@@ -81,6 +82,8 @@ function diplayQuestionTotal(currentQuestionNum, totalNumQuestion) {
 
 // Given a question object loads the next question on screen
 function loadQuestion(currentQuestion, currentIndex) {
+    $('.quiz-area').show();
+    $('.answer-display').hide();
     console.log('index: ' + currentIndex);
     $('.question-header').text('Question' + '#' + currentIndex + '. ' + currentQuestion.questionText);
     console.log(currentQuestion.questionText);
@@ -100,5 +103,10 @@ function newGame(firstQuestion, totalNumQuestion) {
     loadQuestion(firstQuestion, 1);
     diplayQuestionTotal(1, totalNumQuestion);
     $('input[type = "radio"]').prop('checked', false); // Clear previous answer
+    // userCorrectTotal = 0;
     return 0;
+
 }
+
+
+
