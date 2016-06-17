@@ -1,8 +1,7 @@
 'use strict'
-
+var currentQuestionIndex = 0;
+var userCorrectTotal = 0;
 $(document).ready(function() {
-    var currentQuestionIndex = 0;
-    var userCorrectTotal = 0;
     var questions = [{
         questionText: 'What is the current season of Big Bang Theory?',
         options: ['Season 14', 'Season 25', 'Season 9', 'Season 8'],
@@ -27,11 +26,11 @@ $(document).ready(function() {
 
     // When triggered this listener calls the new game function
     $('.start-game').click(function() {
-        currentQuestionIndex = newGame(questions[0], questions.length);
+        newGame(questions[currentQuestionIndex], questions.length);
     });
 
     // Loads first question when page loads
-    currentQuestionIndex = userCorrectTotal = newGame(questions[0], questions.length);
+    newGame(questions[currentQuestionIndex], questions.length);
 
     $('form').submit(function(event) {
         event.preventDefault();
@@ -44,7 +43,7 @@ $(document).ready(function() {
                 userCorrectTotal++;
                 console.log('userCorrectTotal:' + userCorrectTotal);
             }
-            if (currentQuestionIndex === 4) {
+            if (currentQuestionIndex === questions.length - 1) {
                 $('.quiz-area').hide();
                 $('.answer-display').show();
                 $('.answer-display').text('You answered ' + userCorrectTotal + ' out of ' + questions.length + ' questions correctly. ');
@@ -103,10 +102,8 @@ function newGame(firstQuestion, totalNumQuestion) {
     loadQuestion(firstQuestion, 1);
     diplayQuestionTotal(1, totalNumQuestion);
     $('input[type = "radio"]').prop('checked', false); // Clear previous answer
-    // userCorrectTotal = 0;
+    userCorrectTotal = 0;
+    currentQuestionIndex = 0;
     return 0;
 
 }
-
-
-
