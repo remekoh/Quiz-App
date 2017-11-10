@@ -8,10 +8,10 @@ $(document).ready(function() {
         correctAnswer: 'Season 11'
     }, {
         questionText: 'How many episodes of Big Bang Theory are there?',
-        options: ['240', '350', '250', '400'],
+        options: ['238', '358', '250', '300'],
         correctAnswer: '238'
     }, {
-        questionText: 'Who was Sheldon\'s roommate?',
+        questionText: 'What\'s is the name of Sheldon\'s former roommate?',
         options: ['Penny', 'Amy', 'Howard', 'Leonard'],
         correctAnswer: 'Leonard'
     }, {
