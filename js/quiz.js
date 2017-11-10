@@ -4,20 +4,32 @@ var userCorrectTotal = 0;
 $(document).ready(function() {
     var questions = [{
         questionText: 'What is the current season of Big Bang Theory?',
-        options: ['Season 14', 'Season 25', 'Season 9', 'Season 8'],
-        correctAnswer: 'Season 9'
+        options: ['Season 14', 'Season 25', 'Season 11', 'Season 12'],
+        correctAnswer: 'Season 11'
     }, {
         questionText: 'How many episodes of Big Bang Theory are there?',
-        options: ['207', '350', '206', '400'],
-        correctAnswer: '207'
+        options: ['240', '350', '250', '400'],
+        correctAnswer: '238'
     }, {
-        questionText: 'Who is Sheldon\'s roommate?',
+        questionText: 'Who was Sheldon\'s roommate?',
         options: ['Penny', 'Amy', 'Howard', 'Leonard'],
         correctAnswer: 'Leonard'
     }, {
-        questionText: 'Which of these is not a character in Big Bang Theory',
+        questionText: 'Which of these is not a character in Big Bang Theory?',
         options: ['Raj', 'Bernadette', 'Stuart', 'Eleanor'],
         correctAnswer: 'Eleanor'
+    }, {
+        questionText: 'What is Amy\'s last name?',
+        options: ['Farrah', 'Wolowitz', 'Fowler', 'Winkle'],
+        correctAnswer: 'Fowler'
+    }, {
+        questionText: 'What is Raj\'s occupation?',
+        options: ['Microbiologist', 'Experimental Physicist', 'Astrophysicist', 'Aerospace Engineer'],
+        correctAnswer: 'Astrophysicist'
+    }, {
+        questionText: 'What\'s the name of the actress that plays Penny? ',
+        options: ['Mayim Bialik', 'Melissa Rauch', 'Laura Spencer', 'Kaley Cuoco'],
+        correctAnswer: 'Kaley Cuoco'
     }, {
         questionText: 'What age did Sheldon begin college?',
         options: ['8', '16', '12', '11'],
@@ -38,7 +50,7 @@ $(document).ready(function() {
         var userAnswer = $('input[type = "radio"]:checked + span');
 
         if (userAnswer.length === 1) {
-            // Checks if user answr is correct
+            // Checks if user answer is correct
             if (isAnswerCorrect(questions[currentQuestionIndex], userAnswer.text())) {
                 userCorrectTotal++;
                 console.log('userCorrectTotal:' + userCorrectTotal);
